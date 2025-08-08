@@ -1,9 +1,93 @@
-[gd_scene load_steps=3 format=3 uid="uid://o6fvpgfs742w"]
+[gd_scene load_steps=15 format=3 uid="uid://o6fvpgfs742w"]
 
 [ext_resource type="Script" uid="uid://dkernoyprnsfc" path="res://view_models/hold_on.gd" id="1_612rv"]
+[ext_resource type="Texture2D" uid="uid://df1e71vvl446y" path="res://assets/hold_button.png" id="2_nkgys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itiys"]
 bg_color = Color(1.44392e-06, 0.684226, 0.703303, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdu1k"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12veh"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08o66"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgrmv"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kbrm"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkgys"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evfjb"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgaft"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grt3q"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmml4"]
+atlas = ExtResource("2_nkgys")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_612rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdu1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12veh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08o66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgrmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kbrm")
+}],
+"loop": false,
+"name": &"hold",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkgys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evfjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgaft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grt3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmml4")
+}],
+"loop": false,
+"name": &"win",
+"speed": 60.0
+}]
 
 [node name="Holdle" type="Control"]
 layout_mode = 3
@@ -26,12 +110,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_itiys")
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="HoldButton" type="Button" parent="PanelContainer/CenterContainer"]
+[node name="HoldButton" type="TextureButton" parent="PanelContainer/CenterContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 60)
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "WIN"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/CenterContainer/HoldButton"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_612rv")
+animation = &"hold"
+centered = false
 
 [node name="HoldTimer" type="Timer" parent="."]
 
