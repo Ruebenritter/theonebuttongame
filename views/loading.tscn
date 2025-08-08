@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwudlepupgpia"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4wj6"]
+bg_color = Color(0.714756, 0.485099, 0.870554, 1)
+
+[node name="loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a4wj6")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="LoadingButton" type="TextureButton" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/CenterContainer/LoadingButton"]

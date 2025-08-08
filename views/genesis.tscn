@@ -1,6 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1mqf6vkuiv4m"]
+[gd_scene load_steps=9 format=3 uid="uid://b1mqf6vkuiv4m"]
 
 [ext_resource type="Script" uid="uid://dyybotdxw6ppf" path="res://view_models/genesis.gd" id="1_4efmx"]
+[ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="2_7lnu2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt6qo"]
+atlas = ExtResource("2_7lnu2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55hk5"]
+atlas = ExtResource("2_7lnu2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1qtc"]
+atlas = ExtResource("2_7lnu2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6egw"]
+atlas = ExtResource("2_7lnu2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ol4"]
+atlas = ExtResource("2_7lnu2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gygv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt6qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55hk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1qtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6egw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ol4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 60.0
+}]
 
 [node name="Genesis" type="Control"]
 layout_mode = 3
@@ -22,11 +66,12 @@ grow_vertical = 2
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PanelContainer/CenterContainer"]
-custom_minimum_size = Vector2(300, 100)
+[node name="Button" type="TextureButton" parent="PanelContainer/CenterContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 32
-text = "WIN"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/CenterContainer/Button"]
+sprite_frames = SubResource("SpriteFrames_0gygv")
+centered = false
 
 [connection signal="pressed" from="PanelContainer/CenterContainer/Button" to="." method="_on_button_pressed"]
