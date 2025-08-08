@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0parosfvi8hf"]
+[gd_scene load_steps=7 format=3 uid="uid://c0parosfvi8hf"]
 
 [ext_resource type="Script" uid="uid://ba5i6sqqpfb8x" path="res://view_models/main.gd" id="1_kvnai"]
 [ext_resource type="PackedScene" uid="uid://b1mqf6vkuiv4m" path="res://views/genesis.tscn" id="2_npfjp"]
 [ext_resource type="PackedScene" uid="uid://o6fvpgfs742w" path="res://views/hold_on.tscn" id="3_bct4t"]
 [ext_resource type="PackedScene" uid="uid://b7e3ejm5elwko" path="res://views/ampel.tscn" id="4_g3jat"]
 [ext_resource type="PackedScene" uid="uid://b7ffog1cwmh4q" path="res://views/reset.tscn" id="5_bct4t"]
+[ext_resource type="PackedScene" uid="uid://bwudlepupgpia" path="res://views/loading.tscn" id="5_g3jat"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -14,4 +15,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kvnai")
-scene_list = Array[PackedScene]([ExtResource("2_npfjp"), ExtResource("3_bct4t"), ExtResource("4_g3jat"), ExtResource("5_bct4t")])
+scene_list = Array[PackedScene]([ExtResource("2_npfjp"), ExtResource("3_bct4t"), ExtResource("4_g3jat"), ExtResource("5_bct4t"), ExtResource("5_g3jat")])

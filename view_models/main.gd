@@ -10,6 +10,7 @@ func _ready():
 	
 func load_level(index: int):
 	if current_level:
+		remove_child(current_level)
 		current_level.queue_free()
 		
 	if index < 0 or index >= scene_list.size():
