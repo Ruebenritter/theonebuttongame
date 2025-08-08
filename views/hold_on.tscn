@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://o6fvpgfs742w"]
+
+[ext_resource type="Script" uid="uid://dkernoyprnsfc" path="res://view_models/hold_on.gd" id="1_612rv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itiys"]
+bg_color = Color(1.44392e-06, 0.684226, 0.703303, 1)
+
+[node name="Holdle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_612rv")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_itiys")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HoldButton" type="Button" parent="PanelContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "WIN"
+
+[node name="HoldTimer" type="Timer" parent="."]
+
+[connection signal="button_down" from="PanelContainer/CenterContainer/HoldButton" to="." method="_on_hold_button_button_down"]
+[connection signal="button_up" from="PanelContainer/CenterContainer/HoldButton" to="." method="_on_hold_button_button_up"]
+[connection signal="timeout" from="HoldTimer" to="." method="_on_hold_timer_timeout"]
