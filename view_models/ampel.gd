@@ -28,6 +28,8 @@ func _on_phase_timer_timeout() -> void:
 		Phase.RED:
 			if mouse_over:
 				print("Mouse over during RED phase, lost!")
+				%Oops.play("default")
+				await %Oops.animation_finished
 				lost.emit()
 			current_phase = Phase.YELLOW
 			%AmpelAnimation.animation = "yellow"
@@ -42,6 +44,8 @@ func _on_ampel_button_mouse_entered() -> void:
 	mouse_over = true
 	if current_phase == Phase.RED and not is_grace_period:
 		print("Mouse entered during RED phase, lost!")
+		%Oops.play("default")
+		await %Oops.animation_finished
 		lost.emit()
 
 
@@ -56,6 +60,8 @@ func _on_ampel_button_pressed() -> void:
 	%AmpelAnimation.play(%AmpelAnimation.animation)
 	if current_phase != Phase.GREEN:
 		print("Button pressed during non-GREEN phase, lost!")
+		%Oops.play("default")
+		await %Oops.animation_finished
 		lost.emit()
 	else:
 		won.emit()

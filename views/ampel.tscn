@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7e3ejm5elwko"]
+[gd_scene load_steps=19 format=3 uid="uid://b7e3ejm5elwko"]
 
 [ext_resource type="PackedScene" uid="uid://doa14uem2xh2m" path="res://views/base_small.tscn" id="1_lykj0"]
 [ext_resource type="Script" uid="uid://chxiujguuyvhn" path="res://view_models/ampel.gd" id="2_3pyfo"]
 [ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="2_xo2bs"]
 [ext_resource type="Texture2D" uid="uid://cun1o04qr4x1w" path="res://assets/stop_ready.png" id="3_rflk6"]
 [ext_resource type="Texture2D" uid="uid://df1e71vvl446y" path="res://assets/hold_button.png" id="5_fr3w8"]
+[ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="6_2jt75"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jt75"]
 atlas = ExtResource("2_xo2bs")
@@ -111,7 +112,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="AmpelButton" type="TextureButton" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer" index="0"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(128, 120)
 layout_mode = 2
 
 [node name="AmpelAnimation" type="AnimatedSprite2D" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" index="0"]
@@ -122,6 +123,11 @@ centered = false
 
 [node name="GraceTimer" type="Timer" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" index="1"]
 unique_name_in_owner = true
+
+[node name="Oops" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer" index="1" instance=ExtResource("6_2jt75")]
+unique_name_in_owner = true
+centered = false
+offset = Vector2(-100, -100)
 
 [connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]
 [connection signal="mouse_entered" from="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" to="." method="_on_ampel_button_mouse_entered"]
