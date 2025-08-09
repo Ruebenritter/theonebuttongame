@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://bap1agk61p3l"]
+
+[ext_resource type="Texture2D" uid="uid://bbrao1ekr8qsw" path="res://assets/oops.png" id="1_wv68v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8br6a"]
+atlas = ExtResource("1_wv68v")
+region = Rect2(0, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sltab"]
+atlas = ExtResource("1_wv68v")
+region = Rect2(400, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrxfv"]
+atlas = ExtResource("1_wv68v")
+region = Rect2(800, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jywtq"]
+atlas = ExtResource("1_wv68v")
+region = Rect2(1200, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmvdf"]
+atlas = ExtResource("1_wv68v")
+region = Rect2(1600, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dacxr"]
+atlas = ExtResource("1_wv68v")
+region = Rect2(2000, 0, 400, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjawj"]
+atlas = ExtResource("1_wv68v")
+region = Rect2(2400, 0, 400, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4npc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8br6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sltab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrxfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jywtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmvdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dacxr")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_wjawj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dacxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmvdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jywtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrxfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sltab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8br6a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 60.0
+}]
+
+[node name="Oops" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_k4npc")
+frame = 12
+frame_progress = 1.0
