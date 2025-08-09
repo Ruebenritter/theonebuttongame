@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0parosfvi8hf"]
+[gd_scene load_steps=11 format=3 uid="uid://c0parosfvi8hf"]
 
 [ext_resource type="Script" uid="uid://ba5i6sqqpfb8x" path="res://view_models/main.gd" id="1_kvnai"]
 [ext_resource type="PackedScene" uid="uid://b1mqf6vkuiv4m" path="res://views/genesis.tscn" id="2_npfjp"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://borkxllhyubsv" path="res://views/dont_press.tscn" id="4_yh66i"]
 [ext_resource type="PackedScene" uid="uid://b7ffog1cwmh4q" path="res://views/reset.tscn" id="5_bct4t"]
 [ext_resource type="PackedScene" uid="uid://b37hertoyhcsj" path="res://views/loading.tscn" id="5_g3jat"]
+[ext_resource type="PackedScene" uid="uid://b3vk5nmsipsyw" path="res://views/hunt.tscn" id="7_5s3yg"]
+[ext_resource type="PackedScene" uid="uid://d32ctw4fpdotd" path="res://views/components/transition.tscn" id="8_obtfv"]
+[ext_resource type="PackedScene" uid="uid://6ewk4n767mwp" path="res://views/components/cursor.tscn" id="9_4y4xp"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -16,4 +19,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kvnai")
-scene_list = Array[PackedScene]([ExtResource("2_npfjp"), ExtResource("3_bct4t"), ExtResource("4_yh66i"), ExtResource("5_g3jat"), ExtResource("4_g3jat"), ExtResource("5_bct4t")])
+scene_list = Array[PackedScene]([ExtResource("2_npfjp"), ExtResource("3_bct4t"), ExtResource("4_yh66i"), ExtResource("5_g3jat"), ExtResource("4_g3jat"), ExtResource("7_5s3yg"), ExtResource("5_bct4t")])
+
+[node name="Transition" parent="." instance=ExtResource("8_obtfv")]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 1
+mouse_filter = 2
+
+[node name="LevelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StereoAnlage" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Cursor" parent="." instance=ExtResource("9_4y4xp")]
+unique_name_in_owner = true
+z_index = 3
+frame = 0
+frame_progress = 0.0

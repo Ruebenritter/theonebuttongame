@@ -1,6 +1,6 @@
 extends Control
 
-signal lost
+signal reset
 
 func _on_button_pressed() -> void:
-	lost.emit()
+	reset.emit()

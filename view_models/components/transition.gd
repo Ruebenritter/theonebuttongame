@@ -1,9 +1,12 @@
 extends ColorRect
 
-@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func play_reveal() -> void:
-	_animation_player.play("reveal")
+	animation_player.speed_scale = 0.5
+	animation_player.play("reveal")
+	
 
 func play_hide() -> void:
-	_animation_player.play("hide")
+	animation_player.speed_scale = 0.5
+	animation_player.play("hide")

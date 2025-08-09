@@ -1,0 +1,136 @@
+[gd_scene load_steps=15 format=3 uid="uid://b3vk5nmsipsyw"]
+
+[ext_resource type="Script" uid="uid://be7prubc38wq8" path="res://view_models/hunt.gd" id="1_n0moe"]
+[ext_resource type="Texture2D" uid="uid://d1fxt8ggb4guc" path="res://assets/running_green_button.png" id="1_ssc1b"]
+[ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="2_hbmhm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2es1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssc1b"]
+atlas = ExtResource("1_ssc1b")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud1l2"]
+atlas = ExtResource("1_ssc1b")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv1q6"]
+atlas = ExtResource("1_ssc1b")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoohw"]
+atlas = ExtResource("1_ssc1b")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoxh6"]
+atlas = ExtResource("1_ssc1b")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0moe"]
+atlas = ExtResource("1_ssc1b")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbmhm"]
+atlas = ExtResource("1_ssc1b")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c2pa"]
+atlas = ExtResource("1_ssc1b")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0edv"]
+atlas = ExtResource("1_ssc1b")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ud1l2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssc1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud1l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv1q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoohw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoxh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoohw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv1q6")
+}],
+"loop": false,
+"name": &"press",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0moe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbmhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c2pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0edv")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}]
+
+[node name="Hunt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n0moe")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2es1")
+
+[node name="ScaredButton" type="Node2D" parent="PanelContainer"]
+unique_name_in_owner = true
+
+[node name="TextureButton" type="TextureButton" parent="PanelContainer/ScaredButton"]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonAnimation" type="AnimatedSprite2D" parent="PanelContainer/ScaredButton/TextureButton"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_ud1l2")
+animation = &"press"
+centered = false
+
+[node name="Oops" parent="PanelContainer" instance=ExtResource("2_hbmhm")]
+unique_name_in_owner = true
+position = Vector2(564, 300)
+
+[connection signal="pressed" from="PanelContainer/ScaredButton/TextureButton" to="." method="_on_texture_button_pressed"]
