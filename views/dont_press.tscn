@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://borkxllhyubsv"]
+
+[ext_resource type="PackedScene" uid="uid://doa14uem2xh2m" path="res://views/base_small.tscn" id="1_5jdyf"]
+[ext_resource type="Script" uid="uid://cl3u5oxtddwnl" path="res://view_models/dont_press.gd" id="2_f81ul"]
+[ext_resource type="Texture2D" uid="uid://cun1o04qr4x1w" path="res://assets/stop_ready.png" id="2_lnchk"]
+[ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="3_f81ul"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceejq"]
+atlas = ExtResource("2_lnchk")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxpxv"]
+atlas = ExtResource("3_f81ul")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g0k0"]
+atlas = ExtResource("3_f81ul")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6q31"]
+atlas = ExtResource("3_f81ul")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt81u"]
+atlas = ExtResource("3_f81ul")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxdhn"]
+atlas = ExtResource("3_f81ul")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3esj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceejq")
+}],
+"loop": false,
+"name": &"dont",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxpxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g0k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6q31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt81u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxdhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt81u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6q31")
+}],
+"loop": false,
+"name": &"press",
+"speed": 30.0
+}]
+
+[node name="dont_press" instance=ExtResource("1_5jdyf")]
+script = ExtResource("2_f81ul")
+
+[node name="WaitTimer" type="Timer" parent="PanelContainer/MarginContainer/PanelContainer" index="0"]
+unique_name_in_owner = true
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/PanelContainer" index="1"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PanelContainer/MarginContainer/PanelContainer/CenterContainer" index="0"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="WaitAnimation" type="AnimatedSprite2D" parent="PanelContainer/MarginContainer/PanelContainer/CenterContainer/TextureButton" index="0"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_r3esj")
+animation = &"dont"
+centered = false
+
+[node name="GraceTimer" type="Timer" parent="PanelContainer/MarginContainer/PanelContainer" index="2"]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="PanelContainer/MarginContainer/PanelContainer/WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/CenterContainer/TextureButton" to="." method="_on_texture_button_pressed"]

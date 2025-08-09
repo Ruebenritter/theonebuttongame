@@ -7,6 +7,8 @@ enum Phase {RED, YELLOW, GREEN}
 var current_phase: Phase = Phase.RED
 var mouse_over = false
 var is_grace_period: bool = true
+var grace_time: float = 1.0
+var phase_time: float = 2.0
 
 
 func _ready():
