@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://5c27lx18mfhr" path="res://assets/press.png" id="1_coilx"]
 [ext_resource type="Script" uid="uid://b8sqau3kaef07" path="res://view_models/chase.gd" id="1_mnyc1"]
-[ext_resource type="Texture2D" uid="uid://d1fxt8ggb4guc" path="res://assets/running_green_button.png" id="2_ibkua"]
 [ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="3_mnyc1"]
+[ext_resource type="Texture2D" uid="uid://b16w0vx0m404s" path="res://assets/running_black_button.png" id="3_oylw1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaeb6"]
 
@@ -109,65 +109,62 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oylw1"]
 radius = 20.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ssc1b"]
-atlas = ExtResource("2_ibkua")
+[sub_resource type="AtlasTexture" id="AtlasTexture_85wpm"]
+atlas = ExtResource("3_oylw1")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ud1l2"]
-atlas = ExtResource("2_ibkua")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s7wu"]
+atlas = ExtResource("3_oylw1")
 region = Rect2(640, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wv1q6"]
-atlas = ExtResource("2_ibkua")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ancpa"]
+atlas = ExtResource("3_oylw1")
 region = Rect2(768, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eoohw"]
-atlas = ExtResource("2_ibkua")
+[sub_resource type="AtlasTexture" id="AtlasTexture_23eyq"]
+atlas = ExtResource("3_oylw1")
 region = Rect2(896, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hoxh6"]
-atlas = ExtResource("2_ibkua")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxp08"]
+atlas = ExtResource("3_oylw1")
 region = Rect2(1024, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n0moe"]
-atlas = ExtResource("2_ibkua")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp6xt"]
+atlas = ExtResource("3_oylw1")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbmhm"]
-atlas = ExtResource("2_ibkua")
+[sub_resource type="AtlasTexture" id="AtlasTexture_we203"]
+atlas = ExtResource("3_oylw1")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3c2pa"]
-atlas = ExtResource("2_ibkua")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6reti"]
+atlas = ExtResource("3_oylw1")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t0edv"]
-atlas = ExtResource("2_ibkua")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bswap"]
+atlas = ExtResource("3_oylw1")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oylw1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ssc1b")
+"texture": SubResource("AtlasTexture_85wpm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ud1l2")
+"texture": SubResource("AtlasTexture_6s7wu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wv1q6")
+"texture": SubResource("AtlasTexture_ancpa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eoohw")
+"texture": SubResource("AtlasTexture_23eyq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hoxh6")
+"texture": SubResource("AtlasTexture_nxp08")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eoohw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wv1q6")
+"texture": SubResource("AtlasTexture_23eyq")
 }],
 "loop": false,
 "name": &"press",
@@ -175,16 +172,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n0moe")
+"texture": SubResource("AtlasTexture_qp6xt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hbmhm")
+"texture": SubResource("AtlasTexture_we203")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3c2pa")
+"texture": SubResource("AtlasTexture_6reti")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t0edv")
+"texture": SubResource("AtlasTexture_bswap")
 }],
 "loop": true,
 "name": &"run",
@@ -251,7 +248,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ButtonAnimation" type="AnimatedSprite2D" parent="PanelContainer/ScaredButton/TextureButton"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_oylw1")
-animation = &"run"
+animation = &"press"
 centered = false
 
 [node name="ButtonArea" type="Area2D" parent="PanelContainer/ScaredButton"]

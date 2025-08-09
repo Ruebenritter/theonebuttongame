@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 
 	# Enable stamp collision only during frames 5–7
 	var frame = %StampPressAnim.frame
-	%CollisionShape.disabled = not (frame >= 5 and frame <= 7)
+	%CollisionShape.disabled = not (frame >= 3 and frame <= 4)
 
 	var my_pos = %ScaredButton.global_position
 	var to_mouse = mpos - my_pos
