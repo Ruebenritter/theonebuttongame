@@ -7,7 +7,7 @@ signal won
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
 
 var is_holding: bool = false
-var time_to_wait: float = randf_range(1.5, 3.2)
+var time_to_wait: float = randf_range(1, 2)
 var has_won: bool = false
 
 func _ready():

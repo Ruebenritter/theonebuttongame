@@ -1,0 +1,137 @@
+[gd_scene load_steps=20 format=3 uid="uid://b1a5g102fdil6"]
+
+[ext_resource type="PackedScene" uid="uid://doa14uem2xh2m" path="res://views/base_small.tscn" id="1_nowyl"]
+[ext_resource type="Script" uid="uid://ckpntqsxqinp8" path="res://view_models/pac_man.gd" id="2_s3ugk"]
+[ext_resource type="Texture2D" uid="uid://wmt0hitl46fb" path="res://assets/PacManButton.png" id="2_w55ol"]
+[ext_resource type="PackedScene" uid="uid://cp6ld8vwmdogb" path="res://views/components/pac_man_cursor.tscn" id="3_44jci"]
+[ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="3_s3ugk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44jci"]
+atlas = ExtResource("2_w55ol")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3at7"]
+atlas = ExtResource("2_w55ol")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2mfn"]
+atlas = ExtResource("2_w55ol")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuv7s"]
+atlas = ExtResource("2_w55ol")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w17qw"]
+atlas = ExtResource("2_w55ol")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogk0v"]
+atlas = ExtResource("2_w55ol")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38mvx"]
+atlas = ExtResource("2_w55ol")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g4nn"]
+atlas = ExtResource("3_s3ugk")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w55ol"]
+atlas = ExtResource("3_s3ugk")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3ugk"]
+atlas = ExtResource("3_s3ugk")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7iow"]
+atlas = ExtResource("3_s3ugk")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvago"]
+atlas = ExtResource("3_s3ugk")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qviso"]
+atlas = ExtResource("3_s3ugk")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c7iow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44jci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3at7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2mfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuv7s")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_w17qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogk0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38mvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g4nn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w55ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3ugk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7iow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvago")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qviso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvago")
+}],
+"loop": false,
+"name": &"press",
+"speed": 30.0
+}]
+
+[node name="PacMan" instance=ExtResource("1_nowyl")]
+script = ExtResource("2_s3ugk")
+fodder_cursor = ExtResource("3_44jci")
+
+[node name="MarginContainer" parent="Background" index="0"]
+theme_override_constants/margin_left = 600
+theme_override_constants/margin_right = 200
+
+[node name="CenterContainer" type="CenterContainer" parent="Background/MarginContainer/Map" index="0"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Background/MarginContainer/Map/CenterContainer" index="0"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="PacAnim" type="AnimatedSprite2D" parent="Background/MarginContainer/Map/CenterContainer/TextureButton" index="0"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_c7iow")
+centered = false
+
+[connection signal="mouse_entered" from="Background/MarginContainer/Map/CenterContainer/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="pressed" from="Background/MarginContainer/Map/CenterContainer/TextureButton" to="." method="_on_texture_button_pressed"]

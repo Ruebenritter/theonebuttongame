@@ -1,8 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://b37hertoyhcsj"]
+[gd_scene load_steps=28 format=3 uid="uid://b37hertoyhcsj"]
 
 [ext_resource type="Script" uid="uid://dstwcuqqfhlsc" path="res://view_models/loading.gd" id="1_ugbr8"]
 [ext_resource type="Texture2D" uid="uid://b6dwvj0wcpxao" path="res://assets/progress_button.png" id="2_gykgn"]
 [ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="3_gykgn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gykgn"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4wj6"]
 
@@ -199,6 +202,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gykgn")
 
 [node name="MarginContainer" type="MarginContainer" parent="Background"]
 layout_mode = 2

@@ -108,6 +108,10 @@ script = ExtResource("2_3pyfo")
 [node name="PhaseTimer" type="Timer" parent="." index="0"]
 unique_name_in_owner = true
 
+[node name="MarginContainer" parent="Background" index="0"]
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 220
+
 [node name="PanelContainer_MarginContainer_PanelContainer#CenterContainer" type="CenterContainer" parent="Background/MarginContainer/Map" index="0"]
 layout_mode = 2
 
