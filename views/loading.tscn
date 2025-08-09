@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://b37hertoyhcsj"]
+[gd_scene load_steps=27 format=3 uid="uid://b37hertoyhcsj"]
 
 [ext_resource type="Script" uid="uid://dstwcuqqfhlsc" path="res://view_models/loading.gd" id="1_ugbr8"]
 [ext_resource type="Texture2D" uid="uid://b6dwvj0wcpxao" path="res://assets/progress_button.png" id="2_gykgn"]
+[ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="3_gykgn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4wj6"]
 
@@ -144,10 +145,19 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rrxp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65b7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5x08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rflcg")
 }],
 "loop": false,
 "name": &"press_early",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -164,10 +174,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8armr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgous")
 }],
 "loop": false,
 "name": &"press_win",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [node name="loading" type="Control"]
@@ -194,21 +207,27 @@ theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 200
 
-[node name="PanelContainer" type="PanelContainer" parent="Background/MarginContainer"]
+[node name="Frame" type="PanelContainer" parent="Background/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a4wj6")
 
-[node name="CenterContainer" type="CenterContainer" parent="Background/MarginContainer/PanelContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Background/MarginContainer/Frame"]
 layout_mode = 2
 
-[node name="LoadingButton" type="TextureButton" parent="Background/MarginContainer/PanelContainer/CenterContainer"]
+[node name="LoadingButton" type="TextureButton" parent="Background/MarginContainer/Frame/CenterContainer"]
 custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 
-[node name="LoadingAnimation" type="AnimatedSprite2D" parent="Background/MarginContainer/PanelContainer/CenterContainer/LoadingButton"]
+[node name="LoadingAnimation" type="AnimatedSprite2D" parent="Background/MarginContainer/Frame/CenterContainer/LoadingButton"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_i0woq")
 animation = &"press_early"
+frame = 7
+frame_progress = 1.0
 centered = false
 
-[connection signal="pressed" from="Background/MarginContainer/PanelContainer/CenterContainer/LoadingButton" to="." method="_on_loading_button_pressed"]
+[node name="Oops" parent="Background/MarginContainer/Frame/CenterContainer" instance=ExtResource("3_gykgn")]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Background/MarginContainer/Frame/CenterContainer/LoadingButton" to="." method="_on_loading_button_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://borkxllhyubsv"]
+[gd_scene load_steps=13 format=3 uid="uid://borkxllhyubsv"]
 
 [ext_resource type="PackedScene" uid="uid://doa14uem2xh2m" path="res://views/base_small.tscn" id="1_5jdyf"]
 [ext_resource type="Script" uid="uid://cl3u5oxtddwnl" path="res://view_models/dont_press.gd" id="2_f81ul"]
 [ext_resource type="Texture2D" uid="uid://cun1o04qr4x1w" path="res://assets/stop_ready.png" id="2_lnchk"]
+[ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="3_ceejq"]
 [ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="3_f81ul"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ceejq"]
@@ -69,24 +70,33 @@ animations = [{
 [node name="dont_press" instance=ExtResource("1_5jdyf")]
 script = ExtResource("2_f81ul")
 
-[node name="WaitTimer" type="Timer" parent="PanelContainer/MarginContainer/PanelContainer" index="0"]
+[node name="WaitTimer" type="Timer" parent="." index="0"]
 unique_name_in_owner = true
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/PanelContainer" index="1"]
+[node name="GraceTimer" type="Timer" parent="." index="1"]
+unique_name_in_owner = true
+
+[node name="Centering" type="CenterContainer" parent="Background/MarginContainer/Map" index="0"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="PanelContainer/MarginContainer/PanelContainer/CenterContainer" index="0"]
+[node name="TextureButton" type="TextureButton" parent="Background/MarginContainer/Map/Centering" index="0"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="WaitAnimation" type="AnimatedSprite2D" parent="PanelContainer/MarginContainer/PanelContainer/CenterContainer/TextureButton" index="0"]
+[node name="WaitAnimation" type="AnimatedSprite2D" parent="Background/MarginContainer/Map/Centering/TextureButton" index="0"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_r3esj")
 animation = &"dont"
 centered = false
 
-[node name="GraceTimer" type="Timer" parent="PanelContainer/MarginContainer/PanelContainer" index="2"]
+[node name="Oops" parent="Background/MarginContainer/Map/Centering" index="1" instance=ExtResource("3_ceejq")]
 unique_name_in_owner = true
+position = Vector2(-23, 4)
+scale = Vector2(0.99, 1)
+centered = false
 
-[connection signal="timeout" from="PanelContainer/MarginContainer/PanelContainer/WaitTimer" to="." method="_on_wait_timer_timeout"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/CenterContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="GraceTimer" to="." method="_on_grace_timer_timeout"]
+[connection signal="mouse_entered" from="Background/MarginContainer/Map/Centering/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="Background/MarginContainer/Map/Centering/TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="Background/MarginContainer/Map/Centering/TextureButton" to="." method="_on_texture_button_pressed"]

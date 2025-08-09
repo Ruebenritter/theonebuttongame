@@ -74,7 +74,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 60.0
+"speed": 40.0
 }]
 
 [node name="Oops" type="AnimatedSprite2D"]

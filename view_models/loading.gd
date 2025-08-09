@@ -8,14 +8,17 @@ var is_loading: bool = false
 
 func _ready() -> void:
 	start_loading()
+	%Oops.position = %Frame.size / 2
 
 
 func _on_loading_button_pressed() -> void:
 	if is_loading:
 		print("Loading in progress, please wait...")
 		%LoadingAnimation.play("press_early")
+		%Oops.play("default")
 		await %LoadingAnimation.animation_finished
 		start_loading()
+		return
 	
 	%LoadingAnimation.play("press_win")
 	await %LoadingAnimation.animation_finished

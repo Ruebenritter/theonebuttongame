@@ -104,27 +104,27 @@ animations = [{
 [node name="ampel" instance=ExtResource("1_lykj0")]
 script = ExtResource("2_3pyfo")
 
-[node name="PhaseTimer" type="Timer" parent="PanelContainer/MarginContainer" index="0"]
+[node name="PhaseTimer" type="Timer" parent="." index="0"]
 unique_name_in_owner = true
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/PanelContainer" index="0"]
+[node name="PanelContainer_MarginContainer_PanelContainer#CenterContainer" type="CenterContainer" parent="Background/MarginContainer/Map" index="0"]
 layout_mode = 2
 
-[node name="AmpelButton" type="TextureButton" parent="PanelContainer/MarginContainer/PanelContainer/CenterContainer" index="0"]
+[node name="AmpelButton" type="TextureButton" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer" index="0"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="AmpelAnimation" type="AnimatedSprite2D" parent="PanelContainer/MarginContainer/PanelContainer/CenterContainer/AmpelButton" index="0"]
+[node name="AmpelAnimation" type="AnimatedSprite2D" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" index="0"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_3pyfo")
 animation = &"yellow"
 centered = false
 
-[node name="GraceTimer" type="Timer" parent="PanelContainer/MarginContainer/PanelContainer/CenterContainer/AmpelButton" index="1"]
+[node name="GraceTimer" type="Timer" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" index="1"]
 unique_name_in_owner = true
 
-[connection signal="timeout" from="PanelContainer/MarginContainer/PhaseTimer" to="." method="_on_phase_timer_timeout"]
-[connection signal="mouse_entered" from="PanelContainer/MarginContainer/PanelContainer/CenterContainer/AmpelButton" to="." method="_on_ampel_button_mouse_entered"]
-[connection signal="mouse_exited" from="PanelContainer/MarginContainer/PanelContainer/CenterContainer/AmpelButton" to="." method="_on_ampel_button_mouse_exited"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/CenterContainer/AmpelButton" to="." method="_on_ampel_button_pressed"]
-[connection signal="timeout" from="PanelContainer/MarginContainer/PanelContainer/CenterContainer/AmpelButton/GraceTimer" to="." method="_on_grace_timer_timeout"]
+[connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]
+[connection signal="mouse_entered" from="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" to="." method="_on_ampel_button_mouse_entered"]
+[connection signal="mouse_exited" from="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" to="." method="_on_ampel_button_mouse_exited"]
+[connection signal="pressed" from="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" to="." method="_on_ampel_button_pressed"]
+[connection signal="timeout" from="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton/GraceTimer" to="." method="_on_grace_timer_timeout"]

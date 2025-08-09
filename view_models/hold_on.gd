@@ -30,6 +30,7 @@ func _on_hold_button_button_up() -> void:
 
 	if hold_timer.time_left > 0:
 		print("Released too early!")
+		%Oops.play("default")
 		animated_sprite.play_backwards("hold")
 		hold_timer.stop()
 		is_holding = false
