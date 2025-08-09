@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1mqf6vkuiv4m"]
+[gd_scene load_steps=11 format=3 uid="uid://b1mqf6vkuiv4m"]
 
 [ext_resource type="Script" uid="uid://dyybotdxw6ppf" path="res://view_models/genesis.gd" id="1_4efmx"]
 [ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="2_7lnu2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jt6qo"]
+bg_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lnu2"]
 
@@ -48,7 +51,7 @@ animations = [{
 "speed": 60.0
 }]
 
-[node name="Genesis" type="Control"]
+[node name="Genesis" type="Control" node_paths=PackedStringArray("anim")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,6 +59,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4efmx")
+anim = NodePath("MarginContainer/PanelContainer/CenterContainer/Button/AnimatedSprite2D")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -64,17 +68,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jt6qo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 170
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 170
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7lnu2")
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Button" type="TextureButton" parent="PanelContainer/CenterContainer"]
+[node name="Button" type="TextureButton" parent="MarginContainer/PanelContainer/CenterContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/CenterContainer/Button"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/PanelContainer/CenterContainer/Button"]
 sprite_frames = SubResource("SpriteFrames_0gygv")
 centered = false
 
-[connection signal="pressed" from="PanelContainer/CenterContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/CenterContainer/Button" to="." method="_on_button_pressed"]

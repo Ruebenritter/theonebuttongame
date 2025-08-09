@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://bwudlepupgpia"]
 
 [ext_resource type="Script" uid="uid://dstwcuqqfhlsc" path="res://view_models/loading.gd" id="1_ugbr8"]
-[ext_resource type="Texture2D" uid="uid://bh14sej47dw76" path="res://assets/progress_button.png" id="2_gykgn"]
+[ext_resource type="Texture2D" uid="uid://b6dwvj0wcpxao" path="res://assets/progress_button.png" id="2_gykgn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4wj6"]
 bg_color = Color(0.714756, 0.485099, 0.870554, 1)

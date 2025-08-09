@@ -1,7 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://o6fvpgfs742w"]
+[gd_scene load_steps=16 format=3 uid="uid://o6fvpgfs742w"]
 
 [ext_resource type="Script" uid="uid://dkernoyprnsfc" path="res://view_models/hold_on.gd" id="1_612rv"]
 [ext_resource type="Texture2D" uid="uid://df1e71vvl446y" path="res://assets/hold_button.png" id="2_nkgys"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkgys"]
+bg_color = Color(0.054902, 0.054902, 0.054902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itiys"]
 bg_color = Color(1.44392e-06, 0.684226, 0.703303, 1)
@@ -105,17 +108,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nkgys")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 170
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 170
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_itiys")
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="HoldButton" type="TextureButton" parent="PanelContainer/CenterContainer"]
+[node name="HoldButton" type="TextureButton" parent="MarginContainer/PanelContainer/CenterContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/CenterContainer/HoldButton"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/PanelContainer/CenterContainer/HoldButton"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_612rv")
 animation = &"hold"
@@ -123,6 +142,6 @@ centered = false
 
 [node name="HoldTimer" type="Timer" parent="."]
 
-[connection signal="button_down" from="PanelContainer/CenterContainer/HoldButton" to="." method="_on_hold_button_button_down"]
-[connection signal="button_up" from="PanelContainer/CenterContainer/HoldButton" to="." method="_on_hold_button_button_up"]
+[connection signal="button_down" from="MarginContainer/PanelContainer/CenterContainer/HoldButton" to="." method="_on_hold_button_button_down"]
+[connection signal="button_up" from="MarginContainer/PanelContainer/CenterContainer/HoldButton" to="." method="_on_hold_button_button_up"]
 [connection signal="timeout" from="HoldTimer" to="." method="_on_hold_timer_timeout"]

@@ -7,13 +7,14 @@ signal won
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
 
 var is_holding: bool = false
-var time_to_wait: int = 3
+var time_to_wait: float = randf_range(1.5, 3.2)
 var has_won: bool = false
 
 func _ready():
 	hold_timer.wait_time = time_to_wait
 	hold_timer.one_shot = true
 	hold_timer.autostart = false
+	animated_sprite.animation = "hold"
 
 func _on_hold_button_button_down() -> void:
 	animated_sprite.play("hold")
