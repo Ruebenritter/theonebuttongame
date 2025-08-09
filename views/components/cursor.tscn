@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://og6gwhn0a04o"]
+
+[ext_resource type="Texture2D" uid="uid://fw1unkc3tgqq" path="res://assets/cursor.png" id="1_gevr7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrmb4"]
+atlas = ExtResource("1_gevr7")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in63x"]
+atlas = ExtResource("1_gevr7")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbwiu"]
+atlas = ExtResource("1_gevr7")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcqsr"]
+atlas = ExtResource("1_gevr7")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iotg"]
+atlas = ExtResource("1_gevr7")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hldhf"]
+atlas = ExtResource("1_gevr7")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j86nx"]
+atlas = ExtResource("1_gevr7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7a0m4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrmb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in63x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbwiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcqsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iotg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hldhf")
+}],
+"loop": false,
+"name": &"click",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j86nx")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[node name="Cursor" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7a0m4")
+animation = &"click"
+frame = 5
+frame_progress = 1.0
