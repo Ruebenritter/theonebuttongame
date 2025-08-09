@@ -1,0 +1,179 @@
+[gd_scene load_steps=22 format=3 uid="uid://dn5ekxn6gbhcn"]
+
+[ext_resource type="Script" uid="uid://c5bqt3v8dbtno" path="res://view_models/energy.gd" id="1_e1yki"]
+[ext_resource type="Texture2D" uid="uid://bbidevmnvbb7x" path="res://assets/ChargingBattery.png" id="1_s4dod"]
+[ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="2_sf1rc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt6qo"]
+atlas = ExtResource("2_sf1rc")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55hk5"]
+atlas = ExtResource("2_sf1rc")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1qtc"]
+atlas = ExtResource("2_sf1rc")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6egw"]
+atlas = ExtResource("2_sf1rc")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ol4"]
+atlas = ExtResource("2_sf1rc")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5j1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt6qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55hk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1qtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6egw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ol4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6egw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55hk5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1yki"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1yki"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf1rc"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5j1v"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cdr7"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5qpi"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqwdk"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc0yu"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1dfp"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fanr8"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6v4w"]
+atlas = ExtResource("1_s4dod")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0ygc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1yki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf1rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5j1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cdr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5qpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqwdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc0yu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1dfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fanr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6v4w")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Energy" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e1yki")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Button" type="TextureButton" parent="PanelContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Anim" type="AnimatedSprite2D" parent="PanelContainer/CenterContainer/Button"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_g5j1v")
+centered = false
+
+[node name="LightContainer" type="PanelContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e1yki")
+
+[node name="BatteryAnim" type="AnimatedSprite2D" parent="PanelContainer"]
+unique_name_in_owner = true
+position = Vector2(1069, 76)
+sprite_frames = SubResource("SpriteFrames_g0ygc")
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/Button" to="." method="_on_button_pressed"]

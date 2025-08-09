@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0parosfvi8hf"]
+[gd_scene load_steps=16 format=3 uid="uid://c0parosfvi8hf"]
 
 [ext_resource type="Script" uid="uid://ba5i6sqqpfb8x" path="res://view_models/main.gd" id="1_kvnai"]
 [ext_resource type="PackedScene" uid="uid://b1mqf6vkuiv4m" path="res://views/genesis.tscn" id="2_npfjp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://borkxllhyubsv" path="res://views/dont_press.tscn" id="4_yh66i"]
 [ext_resource type="PackedScene" uid="uid://b7ffog1cwmh4q" path="res://views/reset.tscn" id="5_bct4t"]
 [ext_resource type="PackedScene" uid="uid://b37hertoyhcsj" path="res://views/loading.tscn" id="5_g3jat"]
+[ext_resource type="PackedScene" uid="uid://dn5ekxn6gbhcn" path="res://views/energy.tscn" id="5_wj5na"]
 [ext_resource type="PackedScene" uid="uid://b3vk5nmsipsyw" path="res://views/hunt.tscn" id="7_5s3yg"]
 [ext_resource type="PackedScene" uid="uid://d32ctw4fpdotd" path="res://views/components/transition.tscn" id="8_obtfv"]
 [ext_resource type="PackedScene" uid="uid://6ewk4n767mwp" path="res://views/components/cursor.tscn" id="9_4y4xp"]
@@ -23,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kvnai")
-scene_list = Array[PackedScene]([ExtResource("2_npfjp"), ExtResource("3_bct4t"), ExtResource("4_yh66i"), ExtResource("5_g3jat"), ExtResource("4_g3jat"), ExtResource("7_5s3yg"), ExtResource("9_quywu"), ExtResource("2_otlot"), ExtResource("5_bct4t")])
+scene_list = Array[PackedScene]([ExtResource("2_npfjp"), ExtResource("3_bct4t"), ExtResource("5_g3jat"), ExtResource("5_wj5na"), ExtResource("4_g3jat"), ExtResource("4_yh66i"), ExtResource("7_5s3yg"), ExtResource("9_quywu"), ExtResource("2_otlot"), ExtResource("5_bct4t")])
 win_sfx = ExtResource("10_qhqv0")
 fail_sfx = ExtResource("11_qhqv0")
 default_cursor = ExtResource("9_4y4xp")
