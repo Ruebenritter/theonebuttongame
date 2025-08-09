@@ -1,6 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://mute72nv7di7"]
+[gd_scene load_steps=42 format=3 uid="uid://da25rinr07qi4"]
 
-[ext_resource type="Script" uid="uid://beajgh80f8ml2" path="res://view_models/trolley.gd" id="1_agxv1"]
+[ext_resource type="Script" path="res://view_models/trolley.gd" id="1_agxv1"]
 [ext_resource type="Texture2D" uid="uid://df1e71vvl446y" path="res://assets/hold_button.png" id="2_drg8o"]
 [ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="2_vufms"]
 [ext_resource type="Texture2D" uid="uid://b0gnydp6mtc2v" path="res://assets/trollyproblem_level.png" id="3_vufms"]

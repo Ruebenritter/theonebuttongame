@@ -223,7 +223,8 @@ frame_progress = 0.0513163
 [node name="StampArea" type="Area2D" parent="PanelContainer/StampPressAnim"]
 position = Vector2(-983, -192)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PanelContainer/StampPressAnim/StampArea"]
+[node name="CollisionShape" type="CollisionShape2D" parent="PanelContainer/StampPressAnim/StampArea"]
+unique_name_in_owner = true
 position = Vector2(981, 329)
 shape = SubResource("CircleShape2D_oylw1")
 
