@@ -79,5 +79,3 @@ animations = [{
 
 [node name="Oops" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_k4npc")
-frame = 12
-frame_progress = 1.0
