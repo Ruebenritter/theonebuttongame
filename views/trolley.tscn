@@ -1,0 +1,463 @@
+[gd_scene load_steps=42 format=3 uid="uid://mute72nv7di7"]
+
+[ext_resource type="Script" uid="uid://beajgh80f8ml2" path="res://view_models/trolley.gd" id="1_agxv1"]
+[ext_resource type="Texture2D" uid="uid://df1e71vvl446y" path="res://assets/hold_button.png" id="2_drg8o"]
+[ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="2_vufms"]
+[ext_resource type="Texture2D" uid="uid://b0gnydp6mtc2v" path="res://assets/trollyproblem_level.png" id="3_vufms"]
+[ext_resource type="Texture2D" uid="uid://cwd6s1kvtpdcd" path="res://assets/trollyproblem_gate.png" id="4_6m4my"]
+[ext_resource type="Texture2D" uid="uid://mnw27n4f7xvv" path="res://assets/trolly_wizard.png" id="5_tpxei"]
+[ext_resource type="Texture2D" uid="uid://dhpona0qi0n10" path="res://assets/trolley_splash.png" id="6_ur5iv"]
+[ext_resource type="Texture2D" uid="uid://wdi3156khp8g" path="res://assets/trolley_human.png" id="7_udjub"]
+[ext_resource type="Texture2D" uid="uid://bp66d8wmp6u1g" path="res://assets/trolley.png" id="8_n28tu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jt6qo"]
+bg_color = Color(0.410839, 0.577539, 0.311181, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6xbx"]
+atlas = ExtResource("2_drg8o")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uv5t"]
+atlas = ExtResource("2_drg8o")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07ccn"]
+atlas = ExtResource("2_drg8o")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edasy"]
+atlas = ExtResource("2_drg8o")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcfw0"]
+atlas = ExtResource("2_drg8o")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gygv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6xbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uv5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07ccn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edasy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcfw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edasy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07ccn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uv5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6xbx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y70y"]
+atlas = ExtResource("4_6m4my")
+region = Rect2(96, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u24e5"]
+atlas = ExtResource("4_6m4my")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4888e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y70y")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u24e5")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_agxv1"]
+script/source = "extends Node2D
+
+@onready var _area = $Area2D
+
+func _ready() -> void:
+	_area.area_entered.connect(_on_area_entered)
+	
+func _on_area_entered(_area: Area2D) -> void:
+	$HumanAnimatedSprite.visible = false
+	$BloodAnimatedSprite.stop()
+	$BloodAnimatedSprite.play(\"default\")
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b75uj"]
+atlas = ExtResource("5_tpxei")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y373"]
+atlas = ExtResource("5_tpxei")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jyokb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b75uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y373")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agxv1"]
+atlas = ExtResource("6_ur5iv")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drg8o"]
+atlas = ExtResource("6_ur5iv")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vufms"]
+atlas = ExtResource("6_ur5iv")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m4my"]
+atlas = ExtResource("6_ur5iv")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpxei"]
+atlas = ExtResource("6_ur5iv")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur5iv"]
+atlas = ExtResource("6_ur5iv")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6xbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agxv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drg8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vufms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m4my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpxei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur5iv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agxv1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4888e"]
+atlas = ExtResource("7_udjub")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkvyi"]
+atlas = ExtResource("7_udjub")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b75uj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4888e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkvyi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_agxv1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 624, 140, 0, 0, 0, 0, 664, 147, 0, 0, 0, 0, 703, 165, 0, 0, 0, 0, 754, 192, 0, 0, 0, 0, 782, 203, 0, 0, 0, 0, 812, 206, 0, 0, 0, 0, 1280, 206)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_drg8o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 624, 140, 0, 0, 0, 0, 1280, 140)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_vufms"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 140, 0, 0, 0, 0, 624, 140)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyokb"]
+atlas = ExtResource("8_n28tu")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mwqe"]
+atlas = ExtResource("8_n28tu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_icist"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyokb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mwqe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agxv1"]
+size = Vector2(66, 20)
+
+[node name="Trolley" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 21.0
+offset_right = -1.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_agxv1")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jt6qo")
+metadata/_edit_lock_ = true
+
+[node name="Oops" parent="PanelContainer" instance=ExtResource("2_vufms")]
+unique_name_in_owner = true
+position = Vector2(950, 316)
+
+[node name="Button" type="TextureButton" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonAnimatedSprite" type="AnimatedSprite2D" parent="Button"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_0gygv")
+centered = false
+
+[node name="TrolleyproblemLevel" type="Sprite2D" parent="."]
+texture = ExtResource("3_vufms")
+centered = false
+
+[node name="TrolleyGate" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(672, 152)
+sprite_frames = SubResource("SpriteFrames_4888e")
+animation = &"up"
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Wizard" type="Node2D" parent="Characters"]
+position = Vector2(949, 140)
+script = SubResource("GDScript_agxv1")
+
+[node name="HumanAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Wizard"]
+sprite_frames = SubResource("SpriteFrames_jyokb")
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="BloodAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Wizard"]
+sprite_frames = SubResource("SpriteFrames_l6xbx")
+frame = 5
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="Characters/Wizard"]
+collision_layer = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Wizard/Area2D"]
+shape = SubResource("CircleShape2D_agxv1")
+metadata/_edit_lock_ = true
+
+[node name="Human1" type="Node2D" parent="Characters"]
+position = Vector2(928, 204)
+script = SubResource("GDScript_agxv1")
+
+[node name="HumanAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human1"]
+sprite_frames = SubResource("SpriteFrames_b75uj")
+autoplay = "default"
+
+[node name="BloodAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human1"]
+sprite_frames = SubResource("SpriteFrames_l6xbx")
+frame = 5
+
+[node name="Area2D" type="Area2D" parent="Characters/Human1"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Human1/Area2D"]
+shape = SubResource("CircleShape2D_agxv1")
+
+[node name="Human2" type="Node2D" parent="Characters"]
+position = Vector2(950, 204)
+script = SubResource("GDScript_agxv1")
+
+[node name="HumanAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human2"]
+sprite_frames = SubResource("SpriteFrames_b75uj")
+autoplay = "default"
+
+[node name="BloodAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human2"]
+sprite_frames = SubResource("SpriteFrames_l6xbx")
+frame = 5
+
+[node name="Area2D" type="Area2D" parent="Characters/Human2"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Human2/Area2D"]
+shape = SubResource("CircleShape2D_agxv1")
+
+[node name="Human3" type="Node2D" parent="Characters"]
+position = Vector2(972, 204)
+script = SubResource("GDScript_agxv1")
+
+[node name="HumanAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human3"]
+sprite_frames = SubResource("SpriteFrames_b75uj")
+autoplay = "default"
+
+[node name="BloodAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human3"]
+sprite_frames = SubResource("SpriteFrames_l6xbx")
+frame = 5
+
+[node name="Area2D" type="Area2D" parent="Characters/Human3"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Human3/Area2D"]
+shape = SubResource("CircleShape2D_agxv1")
+
+[node name="Human4" type="Node2D" parent="Characters"]
+position = Vector2(994, 204)
+script = SubResource("GDScript_agxv1")
+
+[node name="HumanAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human4"]
+sprite_frames = SubResource("SpriteFrames_b75uj")
+autoplay = "default"
+
+[node name="BloodAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human4"]
+sprite_frames = SubResource("SpriteFrames_l6xbx")
+frame = 5
+
+[node name="Area2D" type="Area2D" parent="Characters/Human4"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Human4/Area2D"]
+shape = SubResource("CircleShape2D_agxv1")
+
+[node name="Human5" type="Node2D" parent="Characters"]
+position = Vector2(1016, 204)
+script = SubResource("GDScript_agxv1")
+
+[node name="HumanAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human5"]
+sprite_frames = SubResource("SpriteFrames_b75uj")
+autoplay = "default"
+
+[node name="BloodAnimatedSprite" type="AnimatedSprite2D" parent="Characters/Human5"]
+sprite_frames = SubResource("SpriteFrames_l6xbx")
+frame = 5
+
+[node name="Area2D" type="Area2D" parent="Characters/Human5"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Human5/Area2D"]
+shape = SubResource("CircleShape2D_agxv1")
+
+[node name="DownPath2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_agxv1")
+
+[node name="DownPathFollow2D" type="PathFollow2D" parent="DownPath2D"]
+unique_name_in_owner = true
+position = Vector2(624, 140)
+rotation = 0.337622
+rotates = false
+loop = false
+
+[node name="UpPath2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_drg8o")
+
+[node name="UpPathFollow2D" type="PathFollow2D" parent="UpPath2D"]
+unique_name_in_owner = true
+position = Vector2(624, 140)
+rotates = false
+loop = false
+
+[node name="SetupPath2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_vufms")
+
+[node name="SetupPathFollow2D" type="PathFollow2D" parent="SetupPath2D"]
+unique_name_in_owner = true
+position = Vector2(0, 140)
+rotates = false
+loop = false
+
+[node name="Trolley" type="AnimatedSprite2D" parent="SetupPath2D/SetupPathFollow2D"]
+unique_name_in_owner = true
+position = Vector2(0, -44)
+sprite_frames = SubResource("SpriteFrames_icist")
+autoplay = "default"
+frame_progress = 0.395822
+
+[node name="Area2D" type="Area2D" parent="SetupPath2D/SetupPathFollow2D/Trolley"]
+position = Vector2(0, 44)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SetupPath2D/SetupPathFollow2D/Trolley/Area2D"]
+shape = SubResource("RectangleShape2D_agxv1")
