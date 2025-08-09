@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvtc47tpuobgr"]
+
+[ext_resource type="Script" uid="uid://bkl1r32lmj4d1" path="res://view_models/components/mouse_canvas_layer.gd" id="1_qpnje"]
+[ext_resource type="PackedScene" uid="uid://og6gwhn0a04o" path="res://views/components/cursor.tscn" id="2_ysjll"]
+
+[node name="MouseCanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_qpnje")
+
+[node name="Cursor" parent="." instance=ExtResource("2_ysjll")]
+unique_name_in_owner = true
