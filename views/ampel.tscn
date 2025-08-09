@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b7e3ejm5elwko"]
+[gd_scene load_steps=18 format=3 uid="uid://b7e3ejm5elwko"]
 
 [ext_resource type="PackedScene" uid="uid://doa14uem2xh2m" path="res://views/base_small.tscn" id="1_lykj0"]
 [ext_resource type="Script" uid="uid://chxiujguuyvhn" path="res://view_models/ampel.gd" id="2_3pyfo"]
 [ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="2_xo2bs"]
 [ext_resource type="Texture2D" uid="uid://cun1o04qr4x1w" path="res://assets/stop_ready.png" id="3_rflk6"]
-[ext_resource type="Texture2D" uid="uid://df1e71vvl446y" path="res://assets/hold_button.png" id="5_fr3w8"]
 [ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="6_2jt75"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jt75"]
@@ -35,21 +34,21 @@ region = Rect2(0, 0, 128, 128)
 atlas = ExtResource("3_rflk6")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hkuq"]
-atlas = ExtResource("5_fr3w8")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mv2rw"]
-atlas = ExtResource("5_fr3w8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr3w8"]
+atlas = ExtResource("3_rflk6")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e876t"]
-atlas = ExtResource("5_fr3w8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hkuq"]
+atlas = ExtResource("3_rflk6")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2k5j"]
-atlas = ExtResource("5_fr3w8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv2rw"]
+atlas = ExtResource("3_rflk6")
 region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e876t"]
+atlas = ExtResource("3_rflk6")
+region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3pyfo"]
 animations = [{
@@ -89,6 +88,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_4rtfg")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fr3w8")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6hkuq")
 }, {
 "duration": 1.0,
@@ -98,10 +100,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_e876t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r2k5j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mv2rw")
+"texture": SubResource("AtlasTexture_6hkuq")
 }],
 "loop": false,
 "name": &"yellow",
@@ -128,7 +127,7 @@ layout_mode = 2
 [node name="AmpelAnimation" type="AnimatedSprite2D" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" index="0"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_3pyfo")
-animation = &"red"
+animation = &"yellow"
 centered = false
 
 [node name="GraceTimer" type="Timer" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" index="1"]
