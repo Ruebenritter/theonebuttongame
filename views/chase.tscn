@@ -202,6 +202,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mnyc1")
+button_speed = 200.0
+flee_radius = 200.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -249,7 +251,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ButtonAnimation" type="AnimatedSprite2D" parent="PanelContainer/ScaredButton/TextureButton"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_oylw1")
-animation = &"press"
+animation = &"run"
 centered = false
 
 [node name="ButtonArea" type="Area2D" parent="PanelContainer/ScaredButton"]

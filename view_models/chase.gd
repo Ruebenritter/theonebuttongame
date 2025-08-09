@@ -5,11 +5,13 @@ signal lost
 
 @export var button_speed: float = 300.0
 @export var flee_radius := 400.0
+# mouse_speed_threshold no longer affects fleeing, keep if you still use it elsewhere
 @export var mouse_speed_threshold := 250
 
 var _prev_mouse := Vector2.ZERO
 var _mouse_speed := 0.0
 var _last_button_position := Vector2.ZERO
+var _last_flee_dir := Vector2.RIGHT
 var stamped := false
 
 func _ready() -> void:
@@ -27,23 +29,29 @@ func _process(delta: float) -> void:
 	_mouse_speed = d.length() / max(delta, 0.0001)
 	_prev_mouse = mpos
 
-	# Enable stamp collision only during frames 4–6
+	# Enable stamp collision only during frames 5–7
 	var frame = %StampPressAnim.frame
-	%CollisionShape.disabled = not (frame >= 5 and frame <= 8)
-
+	%CollisionShape.disabled = not (frame >= 5 and frame <= 7)
 
 	var my_pos = %ScaredButton.global_position
 	var to_mouse = mpos - my_pos
 	var dist = to_mouse.length()
 
-	if dist < flee_radius and _mouse_speed > mouse_speed_threshold:
-		var away = (-to_mouse).normalized()
-		var intensity = 1.0 - clamp(dist / flee_radius, 0.0, 1.0)
-		%ScaredButton.position += away * button_speed * intensity * delta
+	# Constant-speed flee if inside radius
+	if dist < flee_radius:
+		var away = (my_pos - mpos).normalized()
+		if away == Vector2.ZERO:
+			# Mouse exactly on top — keep fleeing in last known direction
+			away = _last_flee_dir
+		else:
+			_last_flee_dir = away
+		%ScaredButton.position += away * button_speed * delta
 
+	# Animate run vs idle/press
 	if _last_button_position != %ScaredButton.global_position:
 		%ButtonAnimation.play("run")
 	else:
+		# small settle delay before showing press pose
 		await get_tree().create_timer(0.2).timeout
 		if stamped:
 			return

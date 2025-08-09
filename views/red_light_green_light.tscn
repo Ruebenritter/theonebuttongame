@@ -1,0 +1,129 @@
+[gd_scene load_steps=16 format=3 uid="uid://dqwelycepbk2f"]
+
+[ext_resource type="Script" uid="uid://br2s0pj0sl2ya" path="res://view_models/red_light_green_light.gd" id="1_fa5w2"]
+[ext_resource type="Texture2D" uid="uid://dvslhartcppeu" path="res://assets/ligth.png" id="1_p6lo1"]
+[ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="1_ymhg4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6lo1"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymhg4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt6qo"]
+atlas = ExtResource("1_ymhg4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55hk5"]
+atlas = ExtResource("1_ymhg4")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1qtc"]
+atlas = ExtResource("1_ymhg4")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6egw"]
+atlas = ExtResource("1_ymhg4")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ol4"]
+atlas = ExtResource("1_ymhg4")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fa5w2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt6qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55hk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1qtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6egw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ol4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 60.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymhg4"]
+atlas = ExtResource("1_p6lo1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa5w2"]
+atlas = ExtResource("1_p6lo1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb27b"]
+atlas = ExtResource("1_p6lo1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vd5uy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymhg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa5w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb27b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="red_light_green_light" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fa5w2")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="StartContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p6lo1")
+
+[node name="FieldContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ymhg4")
+
+[node name="WinButton" type="TextureButton" parent="PanelContainer/HBoxContainer/FieldContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="ButtonAnim" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/FieldContainer/WinButton"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_fa5w2")
+centered = false
+
+[node name="LightAnim" type="AnimatedSprite2D" parent="PanelContainer"]
+unique_name_in_owner = true
+position = Vector2(654, 324)
+sprite_frames = SubResource("SpriteFrames_vd5uy")
