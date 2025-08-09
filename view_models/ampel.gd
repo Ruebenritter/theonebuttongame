@@ -4,68 +4,76 @@ signal lost
 signal won
 
 enum Phase {RED, YELLOW, GREEN}
+
 var current_phase: Phase = Phase.RED
-var mouse_over = false
-var is_grace_period: bool = true
+var mouse_over := false
+var is_grace_period := true
 var grace_time: float = 1.0
 var phase_time: float = 2.0
 
+var _has_lost := false
+var _has_won := false
 
-func _ready():
-	# Move mouse to a safe position
+func _ready() -> void:
 	%AmpelAnimation.animation = "red"
-	%PhaseTimer.wait_time = 2.0
-	%GraceTimer.wait_time = 1.0
+	%PhaseTimer.wait_time = phase_time
+	%GraceTimer.wait_time = grace_time
 	%GraceTimer.one_shot = true
 	%GraceTimer.autostart = true
 
 	%PhaseTimer.start()
 	current_phase = Phase.RED
-	
 
 func _on_phase_timer_timeout() -> void:
 	match current_phase:
 		Phase.RED:
 			if mouse_over:
-				print("Mouse over during RED phase, lost!")
-				%Oops.play("default")
-				await %Oops.animation_finished
-				lost.emit()
+				_trigger_loss("Mouse over during RED phase, lost!")
+				return
 			current_phase = Phase.YELLOW
 			%AmpelAnimation.animation = "yellow"
+
 		Phase.YELLOW:
-			if !mouse_over:
-				print("Mouse left during YELLOW phase, lost!")
-				lost.emit()
+			if not mouse_over:
+				_trigger_loss("Mouse not on button during YELLOW phase, lost!")
+				return # stop here, don't go to green
 			current_phase = Phase.GREEN
 			%AmpelAnimation.animation = "green"
 
 func _on_ampel_button_mouse_entered() -> void:
 	mouse_over = true
 	if current_phase == Phase.RED and not is_grace_period:
-		print("Mouse entered during RED phase, lost!")
-		%Oops.play("default")
-		await %Oops.animation_finished
-		lost.emit()
-
+		_trigger_loss("Mouse entered during RED phase, lost!")
 
 func _on_ampel_button_mouse_exited() -> void:
 	mouse_over = false
 	if current_phase != Phase.GREEN and not is_grace_period:
-		print("Mouse exited during non-GREEN phase, lost!")
-		lost.emit()
-
+		_trigger_loss("Mouse exited during non-GREEN phase, lost!")
 
 func _on_ampel_button_pressed() -> void:
 	%AmpelAnimation.play(%AmpelAnimation.animation)
 	if current_phase != Phase.GREEN:
-		print("Button pressed during non-GREEN phase, lost!")
-		%Oops.play("default")
-		await %Oops.animation_finished
-		lost.emit()
+		_trigger_loss("Button pressed during non-GREEN phase, lost!")
 	else:
-		won.emit()
-
+		_trigger_win()
 
 func _on_grace_timer_timeout() -> void:
 	is_grace_period = false
+
+# --- Helpers ---
+func _trigger_loss(reason: String) -> void:
+	if _has_lost or _has_won:
+		return
+	_has_lost = true
+	print(reason)
+	%PhaseTimer.stop()
+	%Oops.play("default")
+	await %Oops.animation_finished
+	lost.emit()
+
+func _trigger_win() -> void:
+	if _has_lost or _has_won:
+		return
+	_has_won = true
+	%PhaseTimer.stop()
+	won.emit()

@@ -68,10 +68,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1jhym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggasd")
 }],
 "loop": false,
 "name": &"green",
-"speed": 5.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -96,10 +99,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r2k5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv2rw")
 }],
 "loop": false,
 "name": &"yellow",
-"speed": 5.0
+"speed": 30.0
 }]
 
 [node name="ampel" instance=ExtResource("1_lykj0")]
@@ -122,7 +128,7 @@ layout_mode = 2
 [node name="AmpelAnimation" type="AnimatedSprite2D" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" index="0"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_3pyfo")
-animation = &"yellow"
+animation = &"red"
 centered = false
 
 [node name="GraceTimer" type="Timer" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer/AmpelButton" index="1"]
