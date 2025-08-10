@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://dqwelycepbk2f"]
+[gd_scene load_steps=31 format=3 uid="uid://dqwelycepbk2f"]
 
 [ext_resource type="Script" uid="uid://br2s0pj0sl2ya" path="res://view_models/red_light_green_light.gd" id="1_fa5w2"]
 [ext_resource type="Texture2D" uid="uid://dvslhartcppeu" path="res://assets/ligth.png" id="1_p6lo1"]
 [ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="1_ymhg4"]
 [ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="2_wb27b"]
 [ext_resource type="Texture2D" uid="uid://cre87bqai128b" path="res://assets/shoot_green_button.png" id="3_vd5uy"]
+[ext_resource type="Texture2D" uid="uid://bgsev1qatoixk" path="res://assets/start_arrow.png" id="6_iu3ir"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6lo1"]
 bg_color = Color(1, 1, 1, 1)
@@ -137,6 +138,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8eo8"]
+atlas = ExtResource("6_iu3ir")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j84hh"]
+atlas = ExtResource("6_iu3ir")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mstg8"]
+atlas = ExtResource("6_iu3ir")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3c6s"]
+atlas = ExtResource("6_iu3ir")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xduoy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8eo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j84hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mstg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3c6s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="red_light_green_light" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -204,6 +241,78 @@ one_shot = true
 [node name="GraceTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="StartHint" type="Node2D" parent="."]
+position = Vector2(210, 4)
+
+[node name="AnimatedSprite2D1" type="AnimatedSprite2D" parent="StartHint"]
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="StartHint"]
+position = Vector2(0, 64)
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="StartHint"]
+position = Vector2(0, 128)
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="StartHint"]
+position = Vector2(0, 192)
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="StartHint"]
+position = Vector2(0, 256)
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="StartHint"]
+position = Vector2(0, 320)
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="StartHint"]
+position = Vector2(0, 384)
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="StartHint"]
+position = Vector2(0, 448)
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="StartHint"]
+position = Vector2(0, 512)
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="StartHint"]
+position = Vector2(0, 576)
+sprite_frames = SubResource("SpriteFrames_xduoy")
+autoplay = "default"
+frame_progress = 0.379321
+centered = false
 
 [connection signal="pressed" from="PanelContainer/HBoxContainer/FieldContainer/WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="timeout" from="ReadyTimer" to="." method="_on_ready_timer_timeout"]

@@ -29,6 +29,7 @@ func _ready() -> void:
 	%GraceTimer.one_shot = true
 	%ReadyTimer.start()
 	set_process(true)
+	$StartHint.visible = true
 
 func _process(_delta: float) -> void:
 	if _has_lost or _has_won:
@@ -53,6 +54,7 @@ func _on_ready_timer_timeout() -> void:
 		_trigger_loss("Not in start area when the game starts.")
 		return
 	_has_started = true
+	$StartHint.visible = false
 	_next_green()
 
 func _on_phase_timer_timeout() -> void:
