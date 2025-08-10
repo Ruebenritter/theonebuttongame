@@ -46,16 +46,16 @@ func _spawn_enemy() -> void:
 
 	_spawn_node.add_child(enemy)
 	enemy.position = pot_position
-	enemy.target = _area.position 
+	enemy.target = _area.position
 
 func _on_timeout() -> void:
 	_is_pressable = true
 	_button_animated_sprite.animation = "green"
 
 func _on_button_pressed() -> void:
-	_pressed = true
 	if not _is_pressable:
 		return
+	_pressed = true
 	_button_animated_sprite.play("green")
 	await _button_animated_sprite.animation_finished
 	won.emit()
