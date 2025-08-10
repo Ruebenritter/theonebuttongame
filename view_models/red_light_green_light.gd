@@ -23,6 +23,7 @@ var _in_grace := false
 func _ready() -> void:
 	_prev_mouse = get_global_mouse_position()
 	_set_light(Phase.WHITE, false)
+	%ButtonAnim.animation = "default"
 	%ReadyTimer.wait_time = randf_range(prestart_time_min, prestart_time_max)
 	%ReadyTimer.one_shot = true
 	%PhaseTimer.one_shot = true
@@ -55,6 +56,7 @@ func _on_ready_timer_timeout() -> void:
 		return
 	_has_started = true
 	$StartHint.visible = false
+	%ButtonAnim.animation = "press"
 	_next_green()
 
 func _on_phase_timer_timeout() -> void:
@@ -92,7 +94,7 @@ func _set_light(p: Phase, start_grace: bool) -> void:
 		_in_grace = false
 
 func _on_win_button_pressed() -> void:
-	if _has_lost or _has_won:
+	if _has_lost or _has_won or %ReadyTimer.time_left > 0.0:
 		return
 	%ButtonAnim.play("press")
 	await %ButtonAnim.animation_finished

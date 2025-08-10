@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://dqwelycepbk2f"]
+[gd_scene load_steps=33 format=3 uid="uid://dqwelycepbk2f"]
 
 [ext_resource type="Script" uid="uid://br2s0pj0sl2ya" path="res://view_models/red_light_green_light.gd" id="1_fa5w2"]
 [ext_resource type="Texture2D" uid="uid://dvslhartcppeu" path="res://assets/ligth.png" id="1_p6lo1"]
 [ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="1_ymhg4"]
 [ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="2_wb27b"]
+[ext_resource type="Texture2D" uid="uid://ctrg1mgidwmhi" path="res://assets/black_button.png" id="3_8fqlr"]
 [ext_resource type="Texture2D" uid="uid://cre87bqai128b" path="res://assets/shoot_green_button.png" id="3_vd5uy"]
 [ext_resource type="Texture2D" uid="uid://bgsev1qatoixk" path="res://assets/start_arrow.png" id="6_iu3ir"]
 
@@ -11,6 +12,10 @@
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymhg4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xduoy"]
+atlas = ExtResource("3_8fqlr")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iu3ir"]
 atlas = ExtResource("3_vd5uy")
@@ -62,6 +67,14 @@ region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fa5w2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xduoy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iu3ir")
@@ -222,7 +235,7 @@ size_flags_vertical = 4
 [node name="ButtonAnim" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/FieldContainer/WinButton"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_fa5w2")
-animation = &"die"
+animation = &"press"
 centered = false
 
 [node name="Light" type="AnimatedSprite2D" parent="PanelContainer"]

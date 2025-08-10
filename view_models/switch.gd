@@ -18,6 +18,7 @@ func _ready() -> void:
 	_switch_button.pressed.connect(_on_switch_button_pressed)
 	_button.mouse_entered.connect(_on_mouse_entered)
 	_button.pressed.connect(_on_button_pressed)
+	_panel.self_modulate = Color.GREEN
 
 func _on_button_pressed() -> void:
 	if _button_is_ready:
