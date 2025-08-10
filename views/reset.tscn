@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7ffog1cwmh4q"]
+[gd_scene load_steps=3 format=3 uid="uid://b7ffog1cwmh4q"]
 
 [ext_resource type="Script" uid="uid://c3ja5xnxocs68" path="res://view_models/reset.gd" id="1_ap0ab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap0ab"]
+bg_color = Color(0, 1, 0, 1)
 
 [node name="reset" type="Control"]
 layout_mode = 3
@@ -11,20 +14,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ap0ab")
 
-[node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(300, 60)
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "PLAY AGAIN!"
+theme_override_styles/panel = SubResource("StyleBoxFlat_ap0ab")
+
+[node name="Button" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
