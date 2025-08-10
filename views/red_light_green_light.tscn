@@ -12,6 +12,38 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6lo1"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg62o"]
+atlas = ExtResource("8_tg8ye")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou015"]
+atlas = ExtResource("8_tg8ye")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3svu7"]
+atlas = ExtResource("8_tg8ye")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d8kd0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg62o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ou015")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3svu7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymhg4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xduoy"]
@@ -152,38 +184,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xg62o"]
-atlas = ExtResource("8_tg8ye")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ou015"]
-atlas = ExtResource("8_tg8ye")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3svu7"]
-atlas = ExtResource("8_tg8ye")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d8kd0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xg62o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ou015")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3svu7")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"default",
-"speed": 1.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8eo8"]
 atlas = ExtResource("6_iu3ir")
 region = Rect2(0, 0, 64, 64)
@@ -247,6 +247,12 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p6lo1")
 
+[node name="CT" type="AnimatedSprite2D" parent="PanelContainer/HBoxContainer/StartPanel"]
+unique_name_in_owner = true
+z_index = 9
+position = Vector2(106, 321)
+sprite_frames = SubResource("SpriteFrames_d8kd0")
+
 [node name="FieldContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -276,11 +282,6 @@ centered = false
 unique_name_in_owner = true
 position = Vector2(1067, 80)
 sprite_frames = SubResource("SpriteFrames_vd5uy")
-
-[node name="CountDownAnimated" type="AnimatedSprite2D" parent="PanelContainer"]
-unique_name_in_owner = true
-position = Vector2(614, 315)
-sprite_frames = SubResource("SpriteFrames_d8kd0")
 
 [node name="ReadyTimer" type="Timer" parent="."]
 unique_name_in_owner = true
