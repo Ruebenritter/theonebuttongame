@@ -8,7 +8,7 @@ enum Phase {RED, YELLOW, GREEN}
 var current_phase: Phase = Phase.RED
 var mouse_over := false
 var is_grace_period := true
-var grace_time: float = 1.0
+var grace_time: float = 0.5
 var phase_time: float = 2.0
 
 var _has_lost := false
@@ -23,6 +23,8 @@ func _ready() -> void:
 
 	%PhaseTimer.start()
 	current_phase = Phase.RED
+	_refresh_hover_deferred()
+
 
 func _on_phase_timer_timeout() -> void:
 	match current_phase:
@@ -77,3 +79,14 @@ func _trigger_win() -> void:
 	_has_won = true
 	%PhaseTimer.stop()
 	won.emit()
+
+func _refresh_hover_deferred() -> void:
+	await get_tree().process_frame
+	_refresh_hover_now()
+
+func _refresh_hover_now() -> void:
+	if !is_instance_valid(%AmpelButton):
+		return
+	var mouse_pos = %AmpelButton.get_local_mouse_position()
+	mouse_over = Rect2(Vector2.ZERO, %AmpelButton.size).has_point(mouse_pos)
+	print("Mouse over button:", mouse_over)

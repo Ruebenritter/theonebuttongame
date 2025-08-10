@@ -127,6 +127,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fr3w8")
 layout_mode = 2
 
 [node name="AmpelButton" type="TextureButton" parent="Background/MarginContainer/Map/PanelContainer_MarginContainer_PanelContainer#CenterContainer" index="0"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 120)
 layout_mode = 2
 
