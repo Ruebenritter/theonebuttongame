@@ -1,0 +1,126 @@
+[gd_scene load_steps=14 format=3 uid="uid://di3nronqkiqxl"]
+
+[ext_resource type="Script" uid="uid://cofkjj7rbkked" path="res://view_models/king_of_the_hill.gd" id="1_7lm8v"]
+[ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="2_7lm8v"]
+[ext_resource type="Texture2D" uid="uid://ctrg1mgidwmhi" path="res://assets/black_button.png" id="2_7tebu"]
+[ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="4_7tebu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aahn"]
+bg_color = Color(0.556606, 0.275674, 0.228375, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt3md"]
+atlas = ExtResource("2_7tebu")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt6qo"]
+atlas = ExtResource("2_7lm8v")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55hk5"]
+atlas = ExtResource("2_7lm8v")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1qtc"]
+atlas = ExtResource("2_7lm8v")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6egw"]
+atlas = ExtResource("2_7lm8v")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ol4"]
+atlas = ExtResource("2_7lm8v")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gygv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt3md")
+}],
+"loop": true,
+"name": &"black",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt6qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55hk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1qtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6egw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ol4")
+}],
+"loop": false,
+"name": &"green",
+"speed": 60.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7lm8v"]
+radius = 30.0
+
+[node name="KingOfTheHill" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7lm8v")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7aahn")
+
+[node name="Button" type="TextureButton" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_left = 512.0
+offset_top = 260.0
+offset_right = 640.0
+offset_bottom = 388.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_0gygv")
+animation = &"black"
+centered = false
+
+[node name="SpawnNode" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(574, 322)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7lm8v")
+metadata/_edit_lock_ = true
+
+[node name="Oops" parent="." instance=ExtResource("4_7tebu")]
+unique_name_in_owner = true
+position = Vector2(574, 260)
