@@ -1,10 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7e3ejm5elwko"]
+[gd_scene load_steps=19 format=3 uid="uid://b7e3ejm5elwko"]
 
 [ext_resource type="PackedScene" uid="uid://doa14uem2xh2m" path="res://views/base_small.tscn" id="1_lykj0"]
 [ext_resource type="Script" uid="uid://chxiujguuyvhn" path="res://view_models/ampel.gd" id="2_3pyfo"]
 [ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="2_xo2bs"]
 [ext_resource type="Texture2D" uid="uid://cun1o04qr4x1w" path="res://assets/stop_ready.png" id="3_rflk6"]
 [ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="6_2jt75"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr3w8"]
+bg_color = Color(0.697429, 0.572991, 0.475046, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jt75"]
 atlas = ExtResource("2_xo2bs")
@@ -116,6 +119,9 @@ unique_name_in_owner = true
 [node name="MarginContainer" parent="Background" index="0"]
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_bottom = 220
+
+[node name="Map" parent="Background/MarginContainer" index="0"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_fr3w8")
 
 [node name="PanelContainer_MarginContainer_PanelContainer#CenterContainer" type="CenterContainer" parent="Background/MarginContainer/Map" index="0"]
 layout_mode = 2

@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://6ewk4n767mwp" path="res://views/components/cursor.tscn" id="9_4y4xp"]
 [ext_resource type="PackedScene" uid="uid://byfqadduhmtow" path="res://views/chase.tscn" id="9_quywu"]
 [ext_resource type="AudioStream" uid="uid://ctdqx6y3edx3u" path="res://sfx/win.wav" id="10_qhqv0"]
-[ext_resource type="PackedScene" uid="uid://dqwelycepbk2f" path="res://views/red_light_green_light.tscn" id="11_26i4t"]
 [ext_resource type="AudioStream" uid="uid://vbe17w004uyu" path="res://sfx/fail.wav" id="11_qhqv0"]
 [ext_resource type="PackedScene" uid="uid://da25rinr07qi4" path="res://views/trolley.tscn" id="11_tr4u5"]
 

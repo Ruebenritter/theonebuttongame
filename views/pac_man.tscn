@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://b1a5g102fdil6"]
 
 [ext_resource type="PackedScene" uid="uid://doa14uem2xh2m" path="res://views/base_small.tscn" id="1_nowyl"]
-[ext_resource type="Script" uid="uid://ckpntqsxqinp8" path="res://view_models/pac_man.gd" id="2_s3ugk"]
+[ext_resource type="Script" path="res://view_models/pac_man.gd" id="2_s3ugk"]
 [ext_resource type="Texture2D" uid="uid://wmt0hitl46fb" path="res://assets/PacManButton.png" id="2_w55ol"]
 [ext_resource type="PackedScene" uid="uid://cp6ld8vwmdogb" path="res://views/components/pac_man_cursor.tscn" id="3_44jci"]
 [ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="3_s3ugk"]

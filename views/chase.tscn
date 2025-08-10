@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="3_mnyc1"]
 [ext_resource type="Texture2D" uid="uid://b16w0vx0m404s" path="res://assets/running_black_button.png" id="3_oylw1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaeb6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnyc1"]
+bg_color = Color(0.754777, 0.507088, 0.687006, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtx84"]
 atlas = ExtResource("1_coilx")
@@ -209,7 +210,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qaeb6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mnyc1")
 
 [node name="StampPressAnim" type="AnimatedSprite2D" parent="PanelContainer"]
 unique_name_in_owner = true

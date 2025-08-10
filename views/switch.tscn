@@ -148,7 +148,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 700
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 200
+theme_override_constants/margin_bottom = 100
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 unique_name_in_owner = true
@@ -168,9 +168,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 offset_left = 112.0
-offset_top = 90.0
+offset_top = 16.0
 offset_right = 240.0
-offset_bottom = 218.0
+offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -185,9 +185,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 offset_left = 144.0
-offset_top = 220.0
+offset_top = 350.0
 offset_right = 208.0
-offset_bottom = 284.0
+offset_bottom = 414.0
 
 [node name="SwitchAnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/PanelContainer/CenterContainer/SwitchButton"]
 unique_name_in_owner = true

@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d1fxt8ggb4guc" path="res://assets/running_green_button.png" id="1_ssc1b"]
 [ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="2_hbmhm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2es1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbmhm"]
+bg_color = Color(0.146161, 0.688444, 0.632849, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ssc1b"]
 atlas = ExtResource("1_ssc1b")
@@ -105,7 +106,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_i2es1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hbmhm")
 
 [node name="ScaredButton" type="Node2D" parent="PanelContainer"]
 unique_name_in_owner = true

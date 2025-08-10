@@ -45,6 +45,9 @@ func _on_battery_animation_finished() -> void:
 
 
 func _on_button_pressed() -> void:
+    if not _battery_charged:
+        return
+
     %Anim.play("default")
     await %Anim.animation_finished
     won.emit()
