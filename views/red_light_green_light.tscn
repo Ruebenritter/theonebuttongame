@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dqwelycepbk2f"]
+[gd_scene load_steps=38 format=3 uid="uid://dqwelycepbk2f"]
 
 [ext_resource type="Script" uid="uid://br2s0pj0sl2ya" path="res://view_models/red_light_green_light.gd" id="1_fa5w2"]
 [ext_resource type="Texture2D" uid="uid://dvslhartcppeu" path="res://assets/ligth.png" id="1_p6lo1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ctrg1mgidwmhi" path="res://assets/black_button.png" id="3_8fqlr"]
 [ext_resource type="Texture2D" uid="uid://cre87bqai128b" path="res://assets/shoot_green_button.png" id="3_vd5uy"]
 [ext_resource type="Texture2D" uid="uid://bgsev1qatoixk" path="res://assets/start_arrow.png" id="6_iu3ir"]
+[ext_resource type="Texture2D" uid="uid://c33psa5f8runm" path="res://assets/SquidCount.png" id="8_tg8ye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6lo1"]
 bg_color = Color(1, 1, 1, 1)
@@ -151,6 +152,38 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg62o"]
+atlas = ExtResource("8_tg8ye")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou015"]
+atlas = ExtResource("8_tg8ye")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3svu7"]
+atlas = ExtResource("8_tg8ye")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d8kd0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg62o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ou015")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3svu7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8eo8"]
 atlas = ExtResource("6_iu3ir")
 region = Rect2(0, 0, 64, 64)
@@ -195,6 +228,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fa5w2")
+prestart_time_min = 3.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -242,6 +276,11 @@ centered = false
 unique_name_in_owner = true
 position = Vector2(1067, 80)
 sprite_frames = SubResource("SpriteFrames_vd5uy")
+
+[node name="CountDownAnimated" type="AnimatedSprite2D" parent="PanelContainer"]
+unique_name_in_owner = true
+position = Vector2(614, 315)
+sprite_frames = SubResource("SpriteFrames_d8kd0")
 
 [node name="ReadyTimer" type="Timer" parent="."]
 unique_name_in_owner = true

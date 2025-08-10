@@ -23,12 +23,14 @@ var _in_grace := false
 func _ready() -> void:
 	_prev_mouse = get_global_mouse_position()
 	_set_light(Phase.WHITE, false)
+	%CountDownAnimated.position = get_viewport().get_visible_rect().size / 2
 	%ButtonAnim.animation = "default"
 	%ReadyTimer.wait_time = randf_range(prestart_time_min, prestart_time_max)
 	%ReadyTimer.one_shot = true
 	%PhaseTimer.one_shot = true
 	%GraceTimer.one_shot = true
 	%ReadyTimer.start()
+	%CountDownAnimated.play("default")
 	set_process(true)
 	$StartHint.visible = true
 
