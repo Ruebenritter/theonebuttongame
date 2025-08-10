@@ -1,0 +1,186 @@
+[gd_scene load_steps=23 format=3 uid="uid://cv3u1pkobfe6b"]
+
+[ext_resource type="PackedScene" uid="uid://doa14uem2xh2m" path="res://views/base_small.tscn" id="1_kqkwc"]
+[ext_resource type="Script" uid="uid://dcco55ya1kv3d" path="res://view_models/rotating.gd" id="2_3mted"]
+[ext_resource type="Texture2D" uid="uid://dp7688iwpastv" path="res://assets/green_button.png" id="2_pid1s"]
+[ext_resource type="Texture2D" uid="uid://b16w0vx0m404s" path="res://assets/running_black_button.png" id="3_23g7w"]
+[ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="3_ukdhs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukdhs"]
+bg_color = Color(0.70073, 0.588382, 0.267904, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23g7w"]
+atlas = ExtResource("2_pid1s")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mted"]
+atlas = ExtResource("2_pid1s")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukdhs"]
+atlas = ExtResource("2_pid1s")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw0vr"]
+atlas = ExtResource("2_pid1s")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a6m7"]
+atlas = ExtResource("2_pid1s")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlbtm"]
+atlas = ExtResource("3_23g7w")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufv6r"]
+atlas = ExtResource("3_23g7w")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0wni"]
+atlas = ExtResource("3_23g7w")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bp0m"]
+atlas = ExtResource("3_23g7w")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obkt0"]
+atlas = ExtResource("3_23g7w")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2ok5"]
+atlas = ExtResource("3_23g7w")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0car5"]
+atlas = ExtResource("3_23g7w")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kywx"]
+atlas = ExtResource("3_23g7w")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbrgg"]
+atlas = ExtResource("3_23g7w")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlbtm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23g7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mted")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukdhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw0vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a6m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukdhs")
+}],
+"loop": false,
+"name": &"active",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlbtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufv6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0wni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bp0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obkt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufv6r")
+}],
+"loop": false,
+"name": &"disabled",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2ok5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0car5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kywx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbrgg")
+}],
+"loop": true,
+"name": &"rotating",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ukdhs"]
+radius = 80.0
+
+[node name="Rotating" instance=ExtResource("1_kqkwc")]
+script = ExtResource("2_3mted")
+
+[node name="MarginContainer" parent="Background" index="0"]
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 300
+
+[node name="Map" parent="Background/MarginContainer" index="0"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_ukdhs")
+
+[node name="Oops" parent="Background/MarginContainer/Map" index="0" instance=ExtResource("3_ukdhs")]
+unique_name_in_owner = true
+z_index = 10
+position = Vector2(199, 85)
+
+[node name="ButtonOrigin" type="Node2D" parent="Background/MarginContainer/Map" index="1"]
+unique_name_in_owner = true
+position = Vector2(273, 191)
+
+[node name="RotatingButton" type="TextureButton" parent="Background/MarginContainer/Map/ButtonOrigin" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 120)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RotationAnim" type="AnimatedSprite2D" parent="Background/MarginContainer/Map/ButtonOrigin/RotatingButton" index="0"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_qlbtm")
+animation = &"rotating"
+centered = false
+
+[node name="SlowDownArea" type="Area2D" parent="Background/MarginContainer/Map/ButtonOrigin/RotatingButton" index="1"]
+unique_name_in_owner = true
+position = Vector2(60, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/MarginContainer/Map/ButtonOrigin/RotatingButton/SlowDownArea" index="0"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_ukdhs")

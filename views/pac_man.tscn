@@ -118,8 +118,7 @@ script = ExtResource("2_s3ugk")
 fodder_cursor = ExtResource("3_44jci")
 
 [node name="MarginContainer" parent="Background" index="0"]
-theme_override_constants/margin_left = 600
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_left = 200
 
 [node name="CenterContainer" type="CenterContainer" parent="Background/MarginContainer/Map" index="0"]
 layout_mode = 2
