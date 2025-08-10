@@ -23,7 +23,7 @@ func _ready():
 		# Browsers require a user gesture first
 		_pending_web_hide = true
 		set_process_unhandled_input(true)
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		# (optional) show "Click to start" overlay here
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
