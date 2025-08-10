@@ -45,6 +45,7 @@ func _on_texture_button_pressed() -> void:
 
 func _on_grace_timer_timeout() -> void:
 	is_grace_period = false
+	_refresh_hover_now()
 	if mouse_over and needs_to_wait:
 		_trigger_loss("Touched the button after grace period ended!")
 	else:
@@ -70,6 +71,20 @@ func start_round() -> void:
 	%WaitAnimation.animation = "dont"
 	%GraceTimer.start()
 	%WaitTimer.start()
+
+	_refresh_hover_deferred()
+
+func _refresh_hover_deferred() -> void:
+	await get_tree().process_frame
+	_refresh_hover_now()
+
+func _refresh_hover_now() -> void:
+	if !is_instance_valid(%TextureButton):
+		return
+	var mouse_pos = %TextureButton.get_local_mouse_position()
+	mouse_over = Rect2(Vector2.ZERO, %TextureButton.size).has_point(mouse_pos)
+	print("Mouse over button:", mouse_over)
+		
 
 func _trigger_loss(reason: String) -> void:
 	if _has_lost or _has_won:

@@ -33,11 +33,9 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		smoothed_delta += event.relative * sensitivity
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.is_echo():
-				return
-			
+
+	elif event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and !event.is_echo():
 			if event.pressed:
 				if _current_cursor:
 					_current_cursor.stop()
@@ -45,11 +43,16 @@ func _input(event: InputEvent) -> void:
 				else:
 					print("No cursor to stop.")
 
-		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			current_scene_index += 1
-			load_level(current_scene_index)
-			
-			
+	elif event is InputEventKey and event.pressed and not event.echo:
+		match event.keycode:
+			KEY_LEFT:
+				current_scene_index -= 1
+				load_level(current_scene_index)
+			KEY_RIGHT:
+				current_scene_index += 1
+				load_level(current_scene_index)
+
+
 func _process(delta: float) -> void:
 	if _current_cursor:
 		_current_cursor.position = get_local_mouse_position()

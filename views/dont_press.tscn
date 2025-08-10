@@ -86,6 +86,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_f81ul")
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="Background/MarginContainer/Map/Centering" index="0"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
