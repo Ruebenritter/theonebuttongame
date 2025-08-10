@@ -82,6 +82,7 @@ func load_level(index: int):
 		print("Level index out of bounds:", index)
 		return
 	
+	set_cursor(default_cursor.instantiate() as AnimatedSprite2D)
 
 	current_level = scene_list[index].instantiate()
 	%LevelContainer.add_child.call_deferred((current_level))

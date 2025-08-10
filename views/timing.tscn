@@ -1,0 +1,241 @@
+[gd_scene load_steps=28 format=3 uid="uid://ffyrfsdekt8n"]
+
+[ext_resource type="Texture2D" uid="uid://b6dwvj0wcpxao" path="res://assets/progress_button.png" id="1_mk3qh"]
+[ext_resource type="Script" uid="uid://duxvupgijmexq" path="res://view_models/timing.gd" id="1_xilrp"]
+[ext_resource type="PackedScene" uid="uid://bap1agk61p3l" path="res://views/components/oops.tscn" id="2_q0jtf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk3qh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_we4d6"]
+bg_color = Color(0.93581, 0.698302, 0.903025, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk3qh"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(2816, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pixue"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(3072, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2lhy"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(3328, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qes8u"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(3584, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th16e"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(3840, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0emgj"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(4096, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfiko"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(4352, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxwp4"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(4608, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00l5y"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(4864, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0o11"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(5120, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xilrp"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0jtf"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mufxw"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2d1u"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(768, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wyfo"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(1024, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybmrx"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(1280, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoxw5"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(1536, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_050x5"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(1792, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb0o5"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(2048, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f0dy"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(2304, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkggn"]
+atlas = ExtResource("1_mk3qh")
+region = Rect2(2560, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pixue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk3qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pixue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2lhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qes8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th16e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2lhy")
+}],
+"loop": false,
+"name": &"correct",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0emgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfiko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxwp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00l5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0o11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxwp4")
+}],
+"loop": false,
+"name": &"early",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xilrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0jtf")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_mufxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2d1u")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_8wyfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybmrx")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_eoxw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_050x5")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_nb0o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f0dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkggn")
+}],
+"loop": false,
+"name": &"load",
+"speed": 20.0
+}]
+
+[node name="Timing" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xilrp")
+reaction_window = 0.2
+wait_before_next = 0.1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mk3qh")
+
+[node name="Oops" parent="." instance=ExtResource("2_q0jtf")]
+unique_name_in_owner = true
+z_index = 10
+position = Vector2(433, 246)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 200
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_we4d6")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/PanelContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 120)
+layout_mode = 2
+
+[node name="LoaderAnim" type="AnimatedSprite2D" parent="MarginContainer/PanelContainer/CenterContainer/TextureButton"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_pixue")
+animation = &"correct"
+centered = false
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/CenterContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="animation_finished" from="MarginContainer/PanelContainer/CenterContainer/TextureButton/LoaderAnim" to="." method="_on_loader_anim_animation_finished"]
