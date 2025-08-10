@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0parosfvi8hf"]
+[gd_scene load_steps=21 format=3 uid="uid://c0parosfvi8hf"]
 
 [ext_resource type="Script" uid="uid://ba5i6sqqpfb8x" path="res://view_models/main.gd" id="1_kvnai"]
 [ext_resource type="PackedScene" uid="uid://b1mqf6vkuiv4m" path="res://views/genesis.tscn" id="2_npfjp"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dqwelycepbk2f" path="res://views/red_light_green_light.tscn" id="11_26i4t"]
 [ext_resource type="AudioStream" uid="uid://vbe17w004uyu" path="res://sfx/fail.wav" id="11_qhqv0"]
 [ext_resource type="PackedScene" uid="uid://da25rinr07qi4" path="res://views/trolley.tscn" id="11_tr4u5"]
+[ext_resource type="PackedScene" uid="uid://di3nronqkiqxl" path="res://views/king_of_the_hill.tscn" id="13_i6dj4"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -28,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kvnai")
-scene_list = Array[PackedScene]([ExtResource("2_npfjp"), ExtResource("3_bct4t"), ExtResource("5_g3jat"), ExtResource("4_yh66i"), ExtResource("5_wj5na"), ExtResource("7_5s3yg"), ExtResource("8_0yken"), ExtResource("4_g3jat"), ExtResource("9_quywu"), ExtResource("11_tr4u5"), ExtResource("7_26i4t"), ExtResource("11_26i4t"), ExtResource("2_otlot"), ExtResource("5_bct4t")])
+scene_list = Array[PackedScene]([ExtResource("2_npfjp"), ExtResource("3_bct4t"), ExtResource("5_g3jat"), ExtResource("4_yh66i"), ExtResource("5_wj5na"), ExtResource("7_5s3yg"), ExtResource("8_0yken"), ExtResource("4_g3jat"), ExtResource("9_quywu"), ExtResource("11_tr4u5"), ExtResource("7_26i4t"), ExtResource("13_i6dj4"), ExtResource("11_26i4t"), ExtResource("2_otlot"), ExtResource("5_bct4t")])
 win_sfx = ExtResource("10_qhqv0")
 fail_sfx = ExtResource("11_qhqv0")
 default_cursor = ExtResource("9_4y4xp")
