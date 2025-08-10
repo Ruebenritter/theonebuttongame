@@ -21,6 +21,7 @@ var _feedback_playing := false # true while a press animation is playing
 
 func _ready() -> void:
 	btn.pressed.connect(_on_btn_pressed)
+	origin.rotation = 10
 	if sprite.animation_finished.is_connected(_on_sprite_finished) == false:
 		sprite.animation_finished.connect(_on_sprite_finished)
 

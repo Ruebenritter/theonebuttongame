@@ -18,7 +18,8 @@ func _ready() -> void:
 	_switch_button.pressed.connect(_on_switch_button_pressed)
 	_button.mouse_entered.connect(_on_mouse_entered)
 	_button.pressed.connect(_on_button_pressed)
-	_panel.self_modulate = Color.GREEN
+	_panel.get("theme_override_styles/panel").set("bg_color", Color.GREEN)
+	#_panel.self_modulate = Color.LIGHT_GREEN
 
 func _on_button_pressed() -> void:
 	if _button_is_ready:
@@ -27,6 +28,7 @@ func _on_button_pressed() -> void:
 		won.emit()
 
 func _on_background_button_pressed() -> void:
+	_panel.self_modulate = Color.GRAY
 	if _button_is_ready:
 		return
 
